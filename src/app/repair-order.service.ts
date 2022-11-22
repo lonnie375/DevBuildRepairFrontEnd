@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { subscribeOn } from 'rxjs';
 import { RepairOrder } from './repair-order';
 import { ShortRepairList } from './short-repair-list';
 
@@ -31,6 +32,10 @@ export class RepairORderService {
   shortList(cb:any){
     this.http.get<ShortRepairList[]>(`https://localhost:7217/repairorder/short`).subscribe(cb);
 
+  }
+
+  bookMarks(cb: any){
+    this.http.get<RepairOrder[]>('https://localhost:7217/repairorder/bookmarks').subscribe(cb);
   }
 
   

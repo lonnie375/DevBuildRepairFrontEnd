@@ -25,12 +25,7 @@ export class AddOrderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.InstSrv.getAll(
-      (result: Instrument[]) => {
-        this.TheInstruments = result; 
-        
-      }
-    );
+
   }
 
   saveIt(){

@@ -5,4 +5,9 @@
         {{order.customer}}{{order.instrument}}
         <button (click)="openOrder(order.id)">Open</button>
     </div>
+    <div *ngIf="editOrder.id > 0">
+        <!--Edit order in brackets is coming from edit-order.component.ts-->
+        <app-edit-order [editOrder]="editOrder" (save)="update($event)"></app-edit-order>
+    </div>
 </div>
+
