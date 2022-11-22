@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RepairOrder } from '../repair-order';
 import { RepairORderService } from '../repair-order.service';
+import { ShortRepairList } from '../short-repair-list';
 
 @Component({
   selector: 'app-order-list',
@@ -9,7 +10,14 @@ import { RepairORderService } from '../repair-order.service';
 })
 export class OrderListComponent implements OnInit {
 
+  repairList: ShortRepairList[] = [];
+
   constructor(private OrderSrv: RepairORderService) { 
+    OrderSrv.shortList(
+      (result: ShortRepairList[]) => {
+        this.repairList = result; 
+      }
+    );
   }
 
   ngOnInit(): void {
@@ -25,6 +33,15 @@ export class OrderListComponent implements OnInit {
       },
       //This parameter is what we want to save 
       order
+    );
+  }
+
+  openOrder(id: number){
+    this.OrderSrv.getOne(
+      (result: RepairOrder) => {
+
+      },
+      id
     );
   }
 

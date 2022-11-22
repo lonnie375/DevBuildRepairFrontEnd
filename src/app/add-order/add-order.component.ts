@@ -20,16 +20,17 @@ export class AddOrderComponent implements OnInit {
 
   @Output() save: EventEmitter<RepairOrder> = new EventEmitter<RepairOrder>(); 
   
-  constructor(private InstSrv: InstrumentService, private OrderSrv: RepairORderService) { 
-    InstSrv.getAll(
+  constructor(private InstSrv: InstrumentService) { 
+
+  }
+
+  ngOnInit(): void {
+    this.InstSrv.getAll(
       (result: Instrument[]) => {
         this.TheInstruments = result; 
         
       }
     );
-  }
-
-  ngOnInit(): void {
   }
 
   saveIt(){
