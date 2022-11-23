@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RepairOrder } from '../repair-order';
 import { RepairORderService } from '../repair-order.service';
+import { ShortRepairList } from '../short-repair-list';
 
 @Component({
   selector: 'app-book-marks',
@@ -9,11 +10,11 @@ import { RepairORderService } from '../repair-order.service';
 })
 export class BookMarksComponent implements OnInit {
 
-  TheList: RepairOrder[]= [];
+  TheList: ShortRepairList[]= [];
 
   constructor(private Ordersrv: RepairORderService) {
     this.Ordersrv.bookMarks(
-      (result: RepairOrder[]) => {
+      (result: ShortRepairList[]) => {
         this.TheList = result; 
       }
     );

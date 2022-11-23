@@ -35,7 +35,7 @@ export class RepairORderService {
   }
 
   bookMarks(cb: any){
-    this.http.get<RepairOrder[]>('https://localhost:7217/repairorder/bookmarks').subscribe(cb);
+    this.http.get<ShortRepairList[]>('https://localhost:7217/repairorder/bookmarks').subscribe(cb);
   }
 
   
